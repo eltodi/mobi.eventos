@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/estilos.css">
+	<script type="text/javascript" src="{{STATIC_URL}}js/jquery.min.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/jquerymobile.min.js"></script>
+	<style type="text/css">
+	.text-tweet, .text-tweet a{
+		font-size: 0.95em !important;
+		font-weight: normal !important;
+	}
+	.ui-li .ui-btn-text a.ui-link-inherit {white-space: normal;}
+
+	</style>
+
+	{% block title %}
+		<title>UIM :: Semana Municipalismo Iberoamericano</title>
+	{% endblock %}
+</head>
+<body>
+
+	<div id="inicio" data-role="page" data-theme="a">
+	<img style="width: 100%" src="{{STATIC_URL}}/images/banner.png" />
+		{% block barra_header %}{% endblock %}
+		{% block contenido %}
+		<div data-role="content" data-theme="a">
+			<ul data-role="listview" data-inset="true" data-filter="false">
+				<li><img style="float:left; width: 40px" src="{{STATIC_URL}}images/agenda.png" />
+					<a href="{% url maint_agenda %}">Agenda</a></li>
+
+				<li><img style="float:left; width: 40px" src="{{STATIC_URL}}images/user.png" />
+					<a href="{%  url maint_ponentes %}">Ponentes</a></li>
+
+				<li><img style="float:left; width: 40px" src="{{STATIC_URL}}images/expo.png" />
+					<a href="{% url maint_feria %}">Feria Iberoamericana</a></li>
+			</ul>
+		</div>        
+		{% endblock %}		
+
+		{% block twitter %}
+
+		{% endblock %}	
+
+	</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35386361-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

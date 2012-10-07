@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>UIM:: Agenda Semana Municipalismo Iberoamericano</title>
+{% endblock %}
+
+{% block barra_header %}
+	<div data-role="header">
+		<a href="{% url maint_home %}" data-icon="back">Volver</a>
+		<h1>Ponencias y Eventos</h1>
+	</div>
+{% endblock %}
+
+{% block contenido %}
+<ul data-role="listview" data-inset="true" data-filter="false">	
+	{% for p in oAgenda %}
+	<li style="white-space: normal">
+		<a href="{% url maint_ponente p.ponente.id %}">
+		<h4>{{p.evento}}</h4>
+		<span style="font-size: 0.8em">{{p.titulo|upper}}</span>
+		<div class="fecha" style="width: 100%">{{p.fecha}}  >> {{p.sala|upper}}</div>
+		</a>
+	</li>		
+	{% endfor %}
+</ul>
+{% endblock %}

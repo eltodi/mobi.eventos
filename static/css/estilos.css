@@ -1,0 +1,13 @@
+
+h4{
+	color: #bc202d;
+}
+
+.fecha{
+	background: rgba(98, 188, 192, 0.9);
+	color: #000;
+	font-size: 12px;
+	width: 300px;
+	padding: 3px;
+	font-weight: 100;
+}

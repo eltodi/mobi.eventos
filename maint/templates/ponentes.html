@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+        <title>UIM:: Ponentes Semana Municipalismo Iberoamericano</title>
+{% endblock %}
+
+{% block barra_header %}
+	<div data-role="header">
+		<a href="{% url maint_home %}" data-icon="back">Volver</a>
+		<h1>Conferencistas</h1>
+	</div>
+{% endblock %}
+
+{% block contenido %}
+<ul data-role="listview" data-inset="true" data-filter="false">	
+	{% for p in oPonentes %}
+		<li><a href="{% url maint_ponente p.id %}">
+		<img style="float:left; width: 80px" src="{{MEDIA_URL}}{{p.foto}}" />
+			<p><h3>{{p}}</h3></p>
+			<p>{{p.cargo}}<br>{{p.institucion}}</p>
+		</a></li>
+	{% endfor %}
+</ul>
+{% endblock %}

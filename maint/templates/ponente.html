@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+        <title>UIM:: {{oPonente.nombre}} {{oPonente.apellidos}} en la  Semana Municipalismo Iberoamericano</title>
+{% endblock %}
+
+
+{% block barra_header %}
+	<div data-role="header">
+		<a href="javascript:history.back()" data-icon="back">Volver</a>
+		<h1>Semana Municipalismo Iberoamericano</h1>
+	</div>
+{% endblock %}
+
+{% block contenido %}
+	<ul data-role="listview" data-inset="true" data-filter="false">
+		<li>
+		<img style="float:left; width: 80px" src="{{MEDIA_URL}}{{oPonente.foto}}" />
+		<p><h3>{{oPonente}}</h3></p>
+		<p>{{oPonente.cargo}}<br>{{oPonente.institucion}}</p>
+		</li>
+	</ul>	
+	<div data-role="collapsible" data-collapsed="false" data-theme="a" data-content-theme="a">
+		<h3>CURRICULUM</h3>
+		<p>{{oPonente.curriculum}}</p>
+	</div>
+	
+	<div data-role="collapsible" data-collapsed="false" data-theme="a" data-content-theme="a">
+	<h3>PONENCIAS</h3>
+		<ul data-role="listview" class="ui-listview">
+	    		{% for p in oPonencias %}
+	            <li data-corners="false" data-shadow="false" data-iconshadow="true" >
+	                <span class="fecha">{{p.fecha}}</span>
+	                <h3>{{p.titulo}}</h3>
+	                <p>{{p.evento}}</p>
+	                <p><b>{{p.sala}}</b></p>
+	            </li>
+	            {% endfor %}
+		</ul>
+	</div>	
+{% endblock %}

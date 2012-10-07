@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+        <title>UIM:: {{oStand.nombre}} en la Feria Iberoamericana de Productos y Servicios Municipales</title>
+{% endblock %}
+
+
+{% block barra_header %}
+	<div data-role="header">
+		<a href="{% url maint_feria %}" data-icon="back">Volver</a>	
+		<h1></h1>	
+	</div>
+{% endblock %}
+
+{% block contenido %}
+	<div data-role="collapsible" data-collapsed="false" data-theme="a" data-content-theme="a">
+		<h3>{{oStand.nombre}}</h3>
+	 	<div data-role="content">
+			<div class="content-secondary">
+				<p>{{oStand.dedicacion|linebreaks}}</p>
+			</div>
+		</div>
+	</div>
+	<div data-role="collapsible" data-collapsed="false" data-theme="a" data-content-theme="a">
+		<h3>Datos de Contacto</h3>
+	 	<div data-role="content">
+			<div class="content-secondary">
+				<li><a href="{{oStand.web}}">{{oStand.web}}</a></li>
+				<li><a href="mailto:{{oStand.email}}">{{oStand.email}}</a></li><br>
+				<li>{{oStand.telefono}}</li>
+				<p>{{oStand.direccion}}<br>
+				{{oStand.localidad}}, {{oStand.provincia}}<br>{{oStand.pais}}</p>
+			</div>
+		</div>
+	</div>	
+{% endblock %}

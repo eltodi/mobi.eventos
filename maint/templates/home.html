@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block twitter %}
+<div data-role="content" style="font-size: 0.8em">
+	<img style="float:left" src="{{STATIC_URL}}images/twitter60.png" />
+	<div style="float:right; text-align:right"><h3>Síguenos en <a href="http://www.twitter.com/uimunicipalista" target="_blank">@uimunicipalista</a> <br>#xcongresouim</h3></div>
+	<div style="clear:both"></div>
+    	<ul data-role="listview" data-divider-theme="b" data-inset="true">
+	{% for tw in tws %}
+		<li data-role="list-divider" role="heading">
+                <a style="text-decoration: none" target="_blank" href="http://twitter.com/{{tw.from_user}}">@{{tw.from_user}}</a>
+		 <span style="font-size:0.8em; float:right">hace {{tw.created_at|timesince}}</span>
+            </li>
+            <li class="text-tweet" data-theme="c">
+               <span> {{tw.text|urlize}}</span>
+            </li>	
+	{% endfor %}
+	</ul>
+</div>
+{% endblock %}
