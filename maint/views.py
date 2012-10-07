@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from utils.decorators import render_with
 from maint.models import *
+from datetime import timedelta
 import datetime
 import tweepy
 
@@ -10,13 +11,15 @@ import tweepy
 def home(request):
 	api = tweepy.API()
 	tws = api.search("xcongresouim")[:20]
-	
-	return {"tws":tws}
+
+	ahora = datetime.datetime.now() - timedelta(hours = +2)
+	return {"tws":tws,"ahora":ahora}
+
 
 @render_with("agenda.html")
 def agenda(request):
 	ahora = datetime.datetime.now()
-	
+
 	oAgenda = Ponencia.objects.filter(fecha__gte=ahora).order_by("fecha")
 
 	return {"oAgenda":oAgenda}

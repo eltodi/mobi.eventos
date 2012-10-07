@@ -9,11 +9,11 @@
 	{% for tw in tws %}
 		<li data-role="list-divider" role="heading">
                 <a style="text-decoration: none" target="_blank" href="http://twitter.com/{{tw.from_user}}">@{{tw.from_user}}</a>
-		 <span style="font-size:0.8em; float:right">hace {{tw.created_at|timesince}}</span>
+		 <span style="font-size:0.8em; float:right">{{dif}} hace {{tw.created_at|timesince:ahora}}</span>
             </li>
             <li class="text-tweet" data-theme="c">
                <span> {{tw.text|urlize}}</span>
-            </li>	
+            </li>
 	{% endfor %}
 	</ul>
 </div>

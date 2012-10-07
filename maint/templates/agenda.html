@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block contenido %}
-<ul data-role="listview" data-inset="true" data-filter="false">	
+<ul data-role="listview" data-inset="true" data-filter="false">
 	{% for p in oAgenda %}
 	<li style="white-space: normal">
 		<a href="{% url maint_ponente p.ponente.id %}">
@@ -20,7 +20,7 @@
 		<span style="font-size: 0.8em">{{p.titulo|upper}}</span>
 		<div class="fecha" style="width: 100%">{{p.fecha}}  >> {{p.sala|upper}}</div>
 		</a>
-	</li>		
+	</li>
 	{% endfor %}
 </ul>
 {% endblock %}
